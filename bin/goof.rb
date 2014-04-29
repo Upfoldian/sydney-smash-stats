@@ -15,24 +15,39 @@ class BracketGroup
 		end
 	end
 
+	def results_addsort(results)
+		addedResults = {:wonAgainst => [], :lostAgainst => [], :setsPlayed => 0}
+		results.each do |result|
+			addedResults[:setsPlayed ] += result[:setsPlayed] if 
+			result[:wonAgainst].each {|x| addedResults[:wonAgainst]+=[x] if not addedResults[:wonAgainst].include? x}
+			result[:lostAgainst].each {|x| addedResults[:lostAgainst]+=[x] if not addedResults[:lostAgainst].include? x}
+		end
+		addedResults[:wonAgainst].sort!
+		addedResults[:lostAgainst].sort!
+		return addedResults
+	end
+
 	def player_results(player)
-		return eventData.has_key? player ? eventData[winner] : []
+		playerResults = @eventData.map do |x| 
+			next if !x.has_key? player
+			x[player]
+		end
+		return results_addsort(playerResults.compact)
 	end
 
 end
+#checks bracket dir for tio files
 def available_brackets()
 	Dir["../brackets/*.tio"]
 end
 
 test = BracketGroup.new(available_brackets, 'Melee Singles')
-#puts test.event
 
 get '/' do
-  test.eventData[0].to_s + "\n\n\n\n*********************\n" +
-  test.eventData[1].to_s + "\n\n\n\n*********************\n" +
-  test.eventData[2].to_s + "\n\n\n\n*********************\n"
+  "zxv: #{test.player_results("zxv")}"
 end
 
-#get '/hello' do
-#	'asdf'
-#end
+get %r{\/player=([\w]+)} do
+	player = params[:captures].first
+	"#{player} results: #{test.player_results(player)}"
+end
