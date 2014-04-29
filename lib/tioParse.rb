@@ -7,8 +7,9 @@ module TioParse
 		#returns a hash of playerID to nickname
 		id_hash = {}
 		tioFile = Nokogiri::XML(open(filepath))
-
-		tioFile.xpath("//Players/Player").each do |node|
+		#puts "getting file at #{filepath}"
+		tioFile.xpath("//Player").each do |node|
+			#puts "ID: #{node.xpath("ID").text}\nNick: #{node.xpath("Nickname").text}"
 			id_hash[node.xpath("ID").text] = node.xpath("Nickname").text.downcase
 		end
 		return id_hash
@@ -41,10 +42,15 @@ module TioParse
 					#TODO: make this section not shit
 					player1 = id_hash[match.xpath("Player1").text]
 					player2 = id_hash[match.xpath("Player2").text]
+					#puts "Player 1: #{player1}, Player 2: #{player2}"
+					#puts "#{match.xpath("Player1").text} #{match.xpath("Player2").text}"
 					eventData[player1][:setsPlayed]+=1
 					eventData[player2][:setsPlayed]+=1
 					winner = id_hash[match.xpath("Winner").text]
 					loser = (player1 == winner ? player2 : player1)
+					if (loser == nil || winner == nil)
+						next
+					end
 					eventData[winner][:wonAgainst].push(loser) unless eventData[winner][:wonAgainst].include?(loser)
 					eventData[loser][:lostAgainst].push(winner) unless eventData[winner][:lostAgainst].include?(winner)
 				end

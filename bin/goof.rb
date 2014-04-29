@@ -6,8 +6,11 @@ class BracketGroup
 	def initialize(brackets, event)
 		@event = event
 		@eventData = []
+		dump = File.open("dump.txt", 'w')
 		brackets.each do |bracket|
 			data = TioParse.parse_tiopro_bracket(bracket, event)
+			dump.puts data
+			dump.puts "*******************************"
 			@eventData.push (data.empty? ? -1 : data)
 		end
 	end
@@ -23,10 +26,11 @@ end
 
 test = BracketGroup.new(available_brackets, 'Melee Singles')
 #puts test.event
-puts test.eventData.size
 
 get '/' do
-  test.eventData[1].to_s
+  test.eventData[0].to_s + "\n\n\n\n*********************\n" +
+  test.eventData[1].to_s + "\n\n\n\n*********************\n" +
+  test.eventData[2].to_s + "\n\n\n\n*********************\n"
 end
 
 #get '/hello' do

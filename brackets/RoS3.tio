@@ -1152,7 +1152,7 @@
 				</Game>
 				<Game>
 					<ID>ac1d491b-0c79-4502-bef5-5abfe674398b</ID>
-					<Name>Melee</Name>
+					<Name>Melee Singles</Name>
 					<PreviousEventID>00000000-0000-0000-0000-000000000000</PreviousEventID>
 					<Date>04/13/2014 00:00:00</Date>
 					<BracketType>DoubleElim</BracketType>
