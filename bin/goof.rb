@@ -1,4 +1,4 @@
-require 'sinatra'
+#require 'sinatra'
 require '../lib/tioParse.rb'
 
 class BracketGroup
@@ -10,29 +10,35 @@ class BracketGroup
 		brackets.each do |bracket|
 			data = TioParse.parse_tiopro_bracket(bracket, event)
 			dump.puts data
-			dump.puts "*******************************"
+			dump.puts "\n*******************************\n"
 			@eventData.push (data.empty? ? -1 : data)
 		end
+		dump.close
 	end
 
 	def results_addsort(results)
-		addedResults = {:wonAgainst => [], :lostAgainst => [], :setsPlayed => 0}
+		addedResults = TioParse::Player.new("combine")
 		results.each do |result|
-			addedResults[:setsPlayed ] += result[:setsPlayed] if 
-			result[:wonAgainst].each {|x| addedResults[:wonAgainst]+=[x] if not addedResults[:wonAgainst].include? x}
-			result[:lostAgainst].each {|x| addedResults[:lostAgainst]+=[x] if not addedResults[:lostAgainst].include? x}
+			addedResults.sets += result.sets 
+			result.wins.each {|x| addedResults.beat x}
+			result.losses.each {|x| addedResults.lost_to x}
 		end
-		addedResults[:wonAgainst].sort!
-		addedResults[:lostAgainst].sort!
-		return addedResults
+		return [:wins => addedResults.wins.sort, :losses => addedResults.losses.sort]
 	end
 
 	def player_results(player)
 		playerResults = @eventData.map do |x| 
-			next if !x.has_key? player
-			x[player]
+			x.has_key? player ? x[player] : nil 
 		end
 		return results_addsort(playerResults.compact)
+	end
+
+	def get_entrants(bracket)
+		return bracket.keys
+	end
+
+	def has_player?(name)
+		return eventData.any? {|event| event.has_key? name}
 	end
 
 end
@@ -43,11 +49,19 @@ end
 
 test = BracketGroup.new(available_brackets, 'Melee Singles')
 
-get '/' do
-  "zxv: #{test.player_results("zxv")}"
-end
+#get '/' do
+#	"zxv: #{test.player_results("zxv")}"
+#end
 
-get %r{\/player=([\w]+)} do
-	player = params[:captures].first
-	"#{player} results: #{test.player_results(player)}"
-end
+#this needs to be tied with some unique bracket grouping ID or some shit
+#get '/player=*' do
+#	out = ""
+#	params[:splat].first.downcase.split(',').each do |player|
+#		if test.has_player? player
+#			out += "#{player} results: #{test.player_results(player)}"
+#		else
+#			out += "#{player} doesn't EXIST goofball!!!"
+#		end
+#	end
+#	out
+#end
