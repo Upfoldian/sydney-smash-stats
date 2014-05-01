@@ -6,31 +6,36 @@ class BracketGroup
 	def initialize(brackets, event)
 		@event = event
 		@eventData = []
+		eloHash = {}
 		dump = File.open("dump.txt", 'w')
 		brackets.each do |bracket|
 			data = TioParse.parse_tiopro_bracket(bracket, event)
-			dump.puts data
-			dump.puts "\n*******************************\n"
+			eloHash = TioParse.update_elo_changes(bracket, event, eloHash)
+			#dump.puts eloHash
+ 			#dump.puts "\n*******************************\n"
 			@eventData.push (data.empty? ? -1 : data)
 		end
+		dump.puts eloHash.values.sort_by{|x| x.elo}.reverse
 		dump.close
 	end
 
-	def results_addsort(results)
-		addedResults = TioParse::Player.new("combine")
+	def results_addsort(name, results)
+		addedResults = TioParse::Player.new(name)
 		results.each do |result|
-			addedResults.sets += result.sets 
-			result.wins.each {|x| addedResults.beat x}
-			result.losses.each {|x| addedResults.lost_to x}
+			#puts result
+			addedResults.sets = result.sets 
+			addedResults.beat *result.wins
+			addedResults.lost_to *result.losses
 		end
-		return [:wins => addedResults.wins.sort, :losses => addedResults.losses.sort]
+		return addedResults
 	end
 
-	def player_results(player)
-		playerResults = @eventData.map do |x| 
-			x.has_key? player ? x[player] : nil 
+	def player_results(player_name)
+		playerResults = @eventData.map do |x|
+			next if not  x.has_key? player_name
+			x[player_name]
 		end
-		return results_addsort(playerResults.compact)
+		return results_addsort(player_name, playerResults.compact)
 	end
 
 	def get_entrants(bracket)
@@ -48,6 +53,7 @@ def available_brackets()
 end
 
 test = BracketGroup.new(available_brackets, 'Melee Singles')
+#puts test.player_results("tommoner")
 
 #get '/' do
 #	"zxv: #{test.player_results("zxv")}"
