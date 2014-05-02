@@ -1,295 +1,261 @@
 Name: 'ted'
-    Won against: ["aki", "ikill", "joe", "josh", "ktmfinx", "ricky", "rj", "scrubs", "seb", "unreon", "william", "zxv"]
-    Lost against: ["rj"]
-    Sets played: 19
-    Elo: 1485
+    Won against: ["aki", "christian", "gords", "invisi", "joe", "paulie", "rj", "shaya", "zxv"]
+    Lost against: ["zxv"]
+    Sets played: 16
+    Elo: 1429
 Name: 'zxv'
-    Won against: ["aki", "joe", "marty", "matt 1", "redmund", "rj", "scabe", "scrubs", "tommoner", "vincent tenia"]
-    Lost against: ["rj", "ted"]
-    Sets played: 20
-    Elo: 1435
-Name: 'rj'
-    Won against: ["cal", "doc", "ea", "jbirds", "matt2", "paulie", "phrase", "smoking puppy", "ted", "zxv"]
-    Lost against: ["ted", "zxv"]
-    Sets played: 18
-    Elo: 1347
-Name: 'joe'
-    Won against: ["aki", "aron", "cal", "gords", "his spazticness", "invisi", "jon", "julian", "matt 2", "paulie", "scabe", "zorsy"]
-    Lost against: ["jbirds", "ted", "zxv"]
-    Sets played: 19
-    Elo: 1335
-Name: 'scrubs'
-    Won against: ["aki", "aron", "donny", "gords", "jon", "julian", "unreon"]
-    Lost against: ["aki", "scabe", "ted", "zxv"]
-    Sets played: 11
-    Elo: 1278
-Name: 'smoking puppy'
-    Won against: ["gords", "paulie", "scabe", "unny", "william"]
-    Lost against: ["rj"]
-    Sets played: 7
-    Elo: 1278
-Name: 'gords'
-    Won against: ["christian", "gamra", "jnuts", "marty", "shaya", "tommoner", "william"]
-    Lost against: ["joe", "rumple", "scrubs", "smoking puppy"]
-    Sets played: 11
-    Elo: 1256
-Name: 'cal'
-    Won against: ["christian", "ikill", "ktmfinx", "paulie", "pi", "ricky", "shaya", "vincent tenia"]
-    Lost against: ["jbirds", "joe", "ricky", "rj"]
-    Sets played: 14
-    Elo: 1256
-Name: 'jbirds'
-    Won against: ["cal", "cunchy", "joe", "paul"]
-    Lost against: ["rj", "scabe"]
-    Sets played: 6
-    Elo: 1254
-Name: 'aki'
-    Won against: ["cunchy", "jay", "paulie", "scrubs", "seb"]
-    Lost against: ["joe", "scrubs", "ted", "zxv"]
-    Sets played: 9
-    Elo: 1246
-Name: 'unny'
-    Won against: ["cunchy", "ktmfinx", "ricky", "tyrone"]
-    Lost against: ["scabe", "smoking puppy"]
-    Sets played: 6
-    Elo: 1246
+    Won against: ["cal", "gamra", "invisi", "paulie", "ricky", "rj", "scabe", "smoking puppy", "ted"]
+    Lost against: ["ted"]
+    Sets played: 16
+    Elo: 1425
 Name: 'paulie'
-    Won against: ["aron", "christian", "chum", "jay", "jnuts", "ktmfinx", "matt 1", "matt 2"]
-    Lost against: ["aki", "cal", "cunchy", "joe", "rj", "smoking puppy"]
-    Sets played: 14
-    Elo: 1242
-Name: 'scabe'
-    Won against: ["jbirds", "minibro", "pi", "scrubs", "unny"]
-    Lost against: ["joe", "smoking puppy", "zxv"]
-    Sets played: 9
-    Elo: 1235
-Name: 'unreon'
-    Won against: ["ktmfinx", "ricky", "seb"]
-    Lost against: ["scrubs", "ted"]
-    Sets played: 5
-    Elo: 1235
-Name: 'ricky'
-    Won against: ["cal", "christian", "matt2", "rumple", "yam"]
-    Lost against: ["cal", "ted", "unny", "unreon"]
-    Sets played: 9
-    Elo: 1233
-Name: 'jon'
-    Won against: ["aron", "cunchy", "josh"]
-    Lost against: ["joe", "scrubs"]
-    Sets played: 5
-    Elo: 1230
-Name: 'gamra'
-    Won against: ["dance", "doc", "zorsy"]
-    Lost against: ["gords", "phrase"]
-    Sets played: 5
-    Elo: 1224
-Name: 'julian'
-    Won against: ["invisi", "minibro", "tommoner"]
-    Lost against: ["joe", "scrubs"]
-    Sets played: 5
-    Elo: 1219
-Name: 'vincent tenia'
-    Won against: ["invisi", "seb", "tommoner"]
-    Lost against: ["cal", "zxv"]
-    Sets played: 5
-    Elo: 1217
-Name: 'aron'
-    Won against: ["donny", "foulguncoma", "james", "ktmfinx", "seb", "star", "william"]
-    Lost against: ["cunchy", "joe", "jon", "paulie", "phrase", "scrubs"]
+    Won against: ["aki", "ea", "foulguncoma", "ikill", "maggot", "ricky", "rj", "scrubs", "unreon"]
+    Lost against: ["joe", "seb", "shaya", "ted", "zxv"]
+    Sets played: 15
+    Elo: 1346
+Name: 'rj'
+    Won against: ["aki", "gords", "jbirds", "joe", "lux", "redmond", "scrubs", "seb", "tommoner"]
+    Lost against: ["paulie", "ted", "zxv"]
+    Sets played: 19
+    Elo: 1338
+Name: 'scrubs'
+    Won against: ["aki", "cal", "joe", "julian", "lux", "matt2", "noser", "ricky", "scabe"]
+    Lost against: ["aki", "joe", "paulie", "rj"]
     Sets played: 13
-    Elo: 1208
-Name: 'matt2'
-    Won against: ["matt 1", "nivlac"]
-    Lost against: ["ricky", "rj"]
+    Elo: 1314
+Name: 'seb'
+    Won against: ["aron", "brad", "ea", "ikill", "invisi", "jbirds", "jon", "paul", "paulie", "star", "vincent tenia", "zorsy"]
+    Lost against: ["joe", "ricky", "rj"]
+    Sets played: 18
+    Elo: 1309
+Name: 'joe'
+    Won against: ["blakn", "cal", "escro", "invisi", "jon", "lux", "paulie", "ricky", "scrubs", "seb", "zorsy"]
+    Lost against: ["aki", "rj", "scrubs", "ted"]
+    Sets played: 17
+    Elo: 1295
+Name: 'lux'
+    Won against: ["brad", "cunchy", "noser", "scabe", "shaya", "star", "vincent tenia"]
+    Lost against: ["joe", "rj", "scrubs"]
+    Sets played: 11
+    Elo: 1258
+Name: 'ikill'
+    Won against: ["aron", "cal", "dance", "gamra"]
+    Lost against: ["paulie", "seb"]
+    Sets played: 6
+    Elo: 1253
+Name: 'ricky'
+    Won against: ["archmage", "dance", "redmund", "seb", "smoking puppy", "unreon"]
+    Lost against: ["joe", "paulie", "scrubs", "zxv"]
+    Sets played: 10
+    Elo: 1251
+Name: 'gamra'
+    Won against: ["jnuts", "paul", "rose", "star"]
+    Lost against: ["ikill", "zxv"]
+    Sets played: 6
+    Elo: 1239
+Name: 'scabe'
+    Won against: ["gords", "noser", "star", "tommoner", "william"]
+    Lost against: ["jbirds", "lux", "scrubs", "zxv"]
+    Sets played: 10
+    Elo: 1234
+Name: 'aki'
+    Won against: ["aron", "hawkeye", "joe", "scrubs", "tommoner"]
+    Lost against: ["paulie", "rj", "scrubs", "ted"]
+    Sets played: 9
+    Elo: 1234
+Name: 'hawkeye'
+    Won against: ["christian", "matt2", "noser"]
+    Lost against: ["aki", "gords"]
+    Sets played: 5
+    Elo: 1218
+Name: 'gords'
+    Won against: ["archmage", "hawkeye", "maggot", "matt 1"]
+    Lost against: ["rj", "scabe", "ted"]
+    Sets played: 8
+    Elo: 1214
+Name: 'jbirds'
+    Won against: ["scabe", "scott"]
+    Lost against: ["rj", "seb"]
     Sets played: 4
-    Elo: 1206
-Name: 'matt 2'
-    Won against: ["jene", "phrase"]
-    Lost against: ["joe", "paulie"]
+    Elo: 1209
+Name: 'jon'
+    Won against: ["cal", "william"]
+    Lost against: ["joe", "seb"]
+    Sets played: 4
+    Elo: 1208
+Name: 'smoking puppy'
+    Won against: ["matt 2", "rose"]
+    Lost against: ["ricky", "zxv"]
+    Sets played: 4
+    Elo: 1208
+Name: 'unreon'
+    Won against: ["jnuts", "matt 2"]
+    Lost against: ["paulie", "ricky"]
     Sets played: 4
     Elo: 1205
-Name: 'ikill'
-    Won against: ["invisi", "james"]
-    Lost against: ["cal", "ted"]
-    Sets played: 4
-    Elo: 1204
-Name: 'cunchy'
-    Won against: ["aron", "invisi", "paulie", "robtaylor"]
-    Lost against: ["aki", "jbirds", "jon", "unny"]
-    Sets played: 8
-    Elo: 1202
-Name: 'phrase'
-    Won against: ["aron", "gamra"]
-    Lost against: ["matt 2", "rj"]
+Name: 'julian'
+    Won against: ["aron", "foulguncoma"]
+    Lost against: ["cal", "scrubs"]
     Sets played: 4
     Elo: 1199
-Name: 'josh'
-    Won against: ["redmund"]
-    Lost against: ["jon", "ted"]
+Name: 'christian'
+    Won against: ["star", "william"]
+    Lost against: ["hawkeye", "ted"]
+    Sets played: 4
+    Elo: 1199
+Name: 'ea'
+    Won against: ["invisi"]
+    Lost against: ["paulie", "seb"]
     Sets played: 3
-    Elo: 1187
-Name: 'marty'
-    Won against: ["matt 1"]
-    Lost against: ["gords", "zxv"]
-    Sets played: 3
+    Elo: 1185
+Name: 'cal'
+    Won against: ["aron", "julian", "redmund", "star", "tommoner"]
+    Lost against: ["ikill", "joe", "jon", "scrubs", "zxv"]
+    Sets played: 11
     Elo: 1184
 Name: 'zorsy'
-    Won against: ["jene"]
-    Lost against: ["gamra", "joe"]
+    Won against: ["cunchy"]
+    Lost against: ["joe", "seb"]
     Sets played: 3
-    Elo: 1182
+    Elo: 1181
 Name: 'shaya'
-    Won against: ["yam"]
-    Lost against: ["cal", "gords"]
+    Won against: ["paulie"]
+    Lost against: ["lux", "ted"]
     Sets played: 3
-    Elo: 1179
-Name: 'ea'
-    Won against: ["nivlac"]
-    Lost against: ["rj", "tommoner"]
-    Sets played: 3
-    Elo: 1179
-Name: 'doc'
+    Elo: 1180
+Name: 'jnuts'
     Won against: ["phibzy"]
-    Lost against: ["gamra", "rj"]
+    Lost against: ["gamra", "unreon"]
     Sets played: 3
-    Elo: 1177
-Name: 'minibro'
-    Won against: ["green pants"]
-    Lost against: ["julian", "scabe"]
+    Elo: 1179
+Name: 'cunchy'
+    Won against: ["escro"]
+    Lost against: ["lux", "zorsy"]
+    Sets played: 3
+    Elo: 1178
+Name: 'redmund'
+    Won against: ["tyrone"]
+    Lost against: ["cal", "ricky"]
+    Sets played: 3
+    Elo: 1178
+Name: 'matt 2'
+    Won against: ["phibzy"]
+    Lost against: ["smoking puppy", "unreon"]
     Sets played: 3
     Elo: 1176
-Name: 'his spazticness'
-    Won against: ["star"]
-    Lost against: ["christian", "joe"]
+Name: 'vincent tenia'
+    Won against: ["green pants"]
+    Lost against: ["lux", "seb"]
     Sets played: 3
-    Elo: 1175
-Name: 'pi'
-    Won against: ["star"]
-    Lost against: ["cal", "scabe"]
+    Elo: 1176
+Name: 'scott'
+    Won against: ["william"]
+    Lost against: ["invisi", "jbirds"]
     Sets played: 3
-    Elo: 1175
-Name: 'christian'
-    Won against: ["foulguncoma", "his spazticness", "invisi"]
-    Lost against: ["cal", "gords", "paulie", "ricky"]
-    Sets played: 7
-    Elo: 1174
-Name: 'james'
-    Won against: ["dance"]
-    Lost against: ["aron", "ikill"]
-    Sets played: 3
-    Elo: 1174
+    Elo: 1173
 Name: 'tommoner'
-    Won against: ["ea", "star"]
-    Lost against: ["gords", "julian", "vincent tenia", "zxv"]
+    Won against: ["aron", "green pants"]
+    Lost against: ["aki", "cal", "rj", "scabe"]
     Sets played: 6
-    Elo: 1172
-Name: 'rumple'
-    Won against: ["gords"]
-    Lost against: ["ktmfinx", "ricky"]
-    Sets played: 3
-    Elo: 1171
-Name: 'robtaylor'
-    Won against: ["seb"]
-    Lost against: ["cunchy", "ktmfinx"]
-    Sets played: 3
-    Elo: 1171
-Name: 'matt 1'
-    Won against: ["redmund", "star"]
-    Lost against: ["marty", "matt2", "paulie", "zxv"]
-    Sets played: 6
-    Elo: 1161
-Name: 'donny'
+    Elo: 1164
+Name: 'invisi'
+    Won against: ["matt 1", "redmond", "scott"]
+    Lost against: ["aron", "ea", "joe", "seb", "ted", "zxv"]
+    Sets played: 9
+    Elo: 1160
+Name: 'redmond'
     Won against: []
-    Lost against: ["aron", "scrubs"]
+    Lost against: ["invisi", "rj"]
     Sets played: 2
-    Elo: 1153
-Name: 'jay'
+    Elo: 1157
+Name: 'brad'
     Won against: []
-    Lost against: ["aki", "paulie"]
+    Lost against: ["lux", "seb"]
     Sets played: 2
-    Elo: 1153
-Name: 'yam'
+    Elo: 1155
+Name: 'escro'
     Won against: []
-    Lost against: ["ricky", "shaya"]
+    Lost against: ["cunchy", "joe"]
     Sets played: 2
-    Elo: 1152
-Name: 'foulguncoma'
+    Elo: 1155
+Name: 'rose'
     Won against: []
-    Lost against: ["aron", "christian"]
+    Lost against: ["gamra", "smoking puppy"]
     Sets played: 2
-    Elo: 1152
+    Elo: 1154
+Name: 'matt2'
+    Won against: []
+    Lost against: ["hawkeye", "scrubs"]
+    Sets played: 2
+    Elo: 1154
 Name: 'dance'
     Won against: []
-    Lost against: ["gamra", "james"]
+    Lost against: ["ikill", "ricky"]
+    Sets played: 2
+    Elo: 1152
+Name: 'blakn'
+    Won against: []
+    Lost against: ["aron", "joe"]
+    Sets played: 2
+    Elo: 1152
+Name: 'maggot'
+    Won against: []
+    Lost against: ["gords", "paulie"]
+    Sets played: 2
+    Elo: 1152
+Name: 'matt 1'
+    Won against: []
+    Lost against: ["gords", "invisi"]
     Sets played: 2
     Elo: 1151
-Name: 'jene'
+Name: 'paul'
     Won against: []
-    Lost against: ["matt 2", "zorsy"]
+    Lost against: ["gamra", "seb"]
     Sets played: 2
     Elo: 1151
-Name: 'nivlac'
+Name: 'archmage'
     Won against: []
-    Lost against: ["ea", "matt2"]
+    Lost against: ["gords", "ricky"]
     Sets played: 2
     Elo: 1151
-Name: 'chum'
+Name: 'foulguncoma'
     Won against: []
-    Lost against: ["ktmfinx", "paulie"]
+    Lost against: ["julian", "paulie"]
     Sets played: 2
     Elo: 1150
 Name: 'green pants'
     Won against: []
-    Lost against: ["minibro", "seb"]
+    Lost against: ["tommoner", "vincent tenia"]
     Sets played: 2
     Elo: 1150
 Name: 'phibzy'
     Won against: []
-    Lost against: ["doc", "seb"]
+    Lost against: ["jnuts", "matt 2"]
     Sets played: 2
     Elo: 1150
-Name: 'jnuts'
-    Won against: []
-    Lost against: ["gords", "paulie"]
-    Sets played: 2
-    Elo: 1150
-Name: 'william'
-    Won against: ["redmund"]
-    Lost against: ["aron", "gords", "smoking puppy", "ted"]
-    Sets played: 5
-    Elo: 1147
 Name: 'tyrone'
     Won against: []
-    Lost against: ["star", "unny"]
+    Lost against: ["noser", "redmund"]
     Sets played: 2
     Elo: 1147
-Name: 'paul'
-    Won against: []
-    Lost against: ["invisi", "jbirds"]
-    Sets played: 2
-    Elo: 1147
-Name: 'ktmfinx'
-    Won against: ["chum", "robtaylor", "rumple"]
-    Lost against: ["aron", "cal", "paulie", "ted", "unny", "unreon"]
+Name: 'aron'
+    Won against: ["blakn", "invisi", "noser"]
+    Lost against: ["aki", "cal", "ikill", "julian", "seb", "tommoner"]
     Sets played: 9
-    Elo: 1145
-Name: 'redmund'
-    Won against: ["star"]
-    Lost against: ["josh", "matt 1", "william", "zxv"]
-    Sets played: 5
-    Elo: 1128
-Name: 'seb'
-    Won against: ["green pants", "phibzy"]
-    Lost against: ["aki", "aron", "robtaylor", "ted", "unreon", "vincent tenia"]
-    Sets played: 8
-    Elo: 1119
-Name: 'invisi'
-    Won against: ["paul"]
-    Lost against: ["christian", "cunchy", "ikill", "joe", "julian", "vincent tenia"]
-    Sets played: 7
-    Elo: 1102
-Name: 'star'
+    Elo: 1133
+Name: 'william'
+    Won against: []
+    Lost against: ["christian", "jon", "scabe", "scott"]
+    Sets played: 4
+    Elo: 1113
+Name: 'noser'
     Won against: ["tyrone"]
-    Lost against: ["aron", "his spazticness", "matt 1", "pi", "redmund", "tommoner"]
+    Lost against: ["aron", "hawkeye", "lux", "scabe", "scrubs"]
     Sets played: 7
-    Elo: 1090
+    Elo: 1099
+Name: 'star'
+    Won against: []
+    Lost against: ["cal", "christian", "gamra", "lux", "scabe", "seb"]
+    Sets played: 6
+    Elo: 1075
+Elo expected: 62400, Total: 62400

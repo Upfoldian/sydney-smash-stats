@@ -128,10 +128,10 @@ module TioParse
 					winner.beat loser
 					loser.lost_to winner
 					ratingChange = calculate_elo_change(winner, loser)
-					if (winner.name == "rj" || loser.name == "rj")
-						puts "Winner: #{winner.name}(#{winner.elo}), Loser: #{loser.name}(#{loser.elo})"
-						puts "RatingChange: #{ratingChange}"
-					end
+					#if (winner.name == "ted" || loser.name == "ted")
+					#	puts "Winner: #{winner.name}(#{winner.elo}), Loser: #{loser.name}(#{loser.elo})"
+					#	puts "RatingChange: #{ratingChange}"
+					#end
 					winner.elo += ratingChange
 					loser.elo -= ratingChange
 				end
