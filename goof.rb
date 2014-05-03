@@ -23,7 +23,6 @@ class BracketGroup
 	def results_addsort(name, results)
 		addedResults = TioParse::Player.new(name)
 		results.each do |result|
-			#puts result
 			addedResults.sets = result.sets 
 			addedResults.beat *result.wins
 			addedResults.lost_to *result.losses
@@ -53,28 +52,21 @@ def available_brackets()
 	Dir["./brackets/*.tio"]
 end
 
-test = BracketGroup.new(available_brackets, 'PM Singles')
+test = BracketGroup.new(available_brackets, 'Melee Singles')
 
-#set :bind, '0.0.0.0'
+set :bind, '0.0.0.0'
 
 get '/' do
-	puts test.eloHash.values.sort_by{|x| x.elo}.reverse.size
-	erb :index, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse}
+	erb :index, :locals => {:players => test.eloHash.values.select{|x| x.sets > 5}.sort_by{|x| x.elo}.reverse}
 end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
 get '/player=*' do
-	out = ""
-	params[:splat].first.downcase.split(',').each do |player|
-		if test.has_player? player
-			out += "#{player} results: #{test.player_results(player)}"
-		else
-			out += "#{player} doesn't EXIST goofball!!!"
-		end
-	end
-	out
+	#do stuff
 end
-
+get '/404' do
+	erb :not_found
+end
 not_found do
-	'Nothin here doofus'
+	redirect to('/404')
 end

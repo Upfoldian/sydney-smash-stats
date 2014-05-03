@@ -2,16 +2,16 @@
 	font-weight:bold;
 }
 .wonAgainst {
-	text-indent: 50px;
+	margin-left: 50px;
 	color: #0000FF;
 }
 .lostAgainst {
-	text-indent: 50px;
-	color: #00FF00;
+	margin-left: 50px;
+	color: #FF0000;
 }
 .elo {
-	text-indent: 50px;
+	margin-left: 50px;
 }
 .sets {
-	text-indent: 50px;
+	margin-left: 50px;
 }
