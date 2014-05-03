@@ -1,0 +1,17 @@
+.name {
+	font-weight:bold;
+}
+.wonAgainst {
+	text-indent: 50px;
+	color: #0000FF;
+}
+.lostAgainst {
+	text-indent: 50px;
+	color: #00FF00;
+}
+.elo {
+	text-indent: 50px;
+}
+.sets {
+	text-indent: 50px;
+}

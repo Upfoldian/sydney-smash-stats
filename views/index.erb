@@ -1,0 +1,11 @@
+<% puts players.size %>
+<% players.each do |player| %>
+	<% puts "#{player.name}" %>
+	<div id="player">
+		</br><span class="name"> <%= player.name %> </span>
+		</br><span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span>
+		</br><span class="lostAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span>
+		</br><span class="elo"> <%= player.elo %> </span>
+		</br><span class="sets"> <%= player.sets %>  </span>
+	</div>
+<% end %>

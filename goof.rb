@@ -1,5 +1,5 @@
 require 'sinatra'
-require '../lib/tioParse.rb'
+require './lib/tioParse.rb'
 
 class BracketGroup
 	attr_reader :event, :eventData, :eloHash
@@ -50,23 +50,16 @@ class BracketGroup
 end
 #checks bracket dir for tio files
 def available_brackets()
-	Dir["../brackets/*.tio"]
+	Dir["./brackets/*.tio"]
 end
 
 test = BracketGroup.new(available_brackets, 'PM Singles')
-#puts test.player_results("tommoner")
-set :bind, '0.0.0.0'
+
+#set :bind, '0.0.0.0'
 
 get '/' do
-	code = ""
-	test.eloHash.values.sort_by{|x| x.elo}.reverse.each do |x|
-		code += "Player: #{x.name}<br>\n"
-		code += "&nbsp;&nbsp;&nbsp;&nbsp;&nbspWon against: #{x.wins.map{|x|x.name}}<br>\n"
-		code += "&nbsp;&nbsp;&nbsp;&nbsp;&nbspLost against: #{x.losses.map{|x|x.name}}<br>\n"
-		code += "&nbsp;&nbsp;&nbsp;&nbsp;&nbspElo: #{x.elo}<br>\n"
-		code += "&nbsp;&nbsp;&nbsp;&nbsp;&nbspSets played: #{x.sets}<br>\n"
-	end
-	erb code
+	puts test.eloHash.values.sort_by{|x| x.elo}.reverse.size
+	erb :index, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse}
 end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
