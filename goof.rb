@@ -35,14 +35,10 @@ end
 get '/*/player=*' do
 	event = params[:splat].first
 	player = params[:splat].last
-	puts event
-	puts player
 	test = TioParse::BracketGroup.new(available_brackets, event)
 	if test.eloHash.has_key? player
-		puts "qwre"
 		erb :player, :locals => {:player => test.eloHash[player]}
 	else 
-		puts "barf"
 		redirect to('/404')
 	end
 end
