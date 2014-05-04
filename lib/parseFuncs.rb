@@ -19,7 +19,13 @@ module TioParse
 		#returns the name of the tournament e.g. "RoS 1"
 		Nokogiri::XML(open(filepath)).xpath("AppData/EventList/Event/Name").text
 	end
-	
+
+	def self.get_events(filepath)
+		#filepath:  	file location of tiopro bracket file
+		#returns the events in the tournament
+		Nokogiri::XML(open(filepath)).xpath("AppData/EventList/Event/Games/Game").map {|x| x.xpath("Name").text}
+	end
+
 	def self.parse_tiopro_bracket(filepath, target_event)
 		#filepath: 		file location of the tiopro bracket file
 		#target_event: 	string containing the event you want data for e.g. "Melee Singles"

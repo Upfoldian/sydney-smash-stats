@@ -1,16 +1,7 @@
-<div class = "bracketDetails"> <%= bracketTitle %> from: </span>
+<div class = "events"> available events: </span>
 	<ul>
-		<% brackets.each do |bracket| %>
-			<li> <span class = "tournamentName"> <%= bracket%> </span>
+		<% events.each do |event| %>
+			<li> <a href = "/<%= event%>/"> <%= event%> </a> </span>
 		<% end %>
 	</ul>
 </div>
-<% players.each do |player| %>
-	<div id="player">
-		<span class="name"> <a href= '/player=<%= player.name%>'><%= player.name %>:</a> </span> </br>
-		<span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span> </br>
-		<span class="lostAgainst"> <%= player.losses.map{|x| x.name}.sort %> </span> </br>
-		<span class="elo"> <%= player.elo %> </span> </br>
-		<span class="sets"> <%= player.sets %>  </span> </br>
-	</div>
-<% end %>

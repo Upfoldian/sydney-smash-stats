@@ -6,25 +6,43 @@ require './lib/TioParse.rb'
 def available_brackets()
 	Dir["./brackets/ACT/Canberra Colosseum/*.tio"]
 end
-searchTitle = 'Brawl Singles'
-test = TioParse::BracketGroup.new(available_brackets, searchTitle)
+def available_events()
+	events = []
+	available_brackets.each do |x| 
+		TioParse.get_events(x).each {|x| events.push x.downcase if !events.include? x.downcase}
+	end
+	events
+end
 
-#set :bind, '0.0.0.0'
-puts available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}.to_s
-puts ""
+set :bind, '0.0.0.0'
 get '/' do
-	erb :index, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse, 
+	erb :index, :locals => {:events => available_events}
+end
+get '/*/' do
+	searchTitle = params[:splat].first
+	redirect to('/') if not available_events.include? searchTitle.downcase
+	test = TioParse::BracketGroup.new(available_brackets, searchTitle)
+	
+	players = test.eloHash.values.sort_by{|x| x.elo}.reverse
+	brackets = available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
+
+	erb :events, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse, 
 							:brackets => available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]},
 							:bracketTitle => searchTitle}
 end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
-get '/player=*' do
-	player = params[:splat].first
+get '/*/player=*' do
+	event = params[:splat].first
+	player = params[:splat].last
+	puts event
+	puts player
+	test = TioParse::BracketGroup.new(available_brackets, event)
 	if test.eloHash.has_key? player
 		puts "qwre"
 		erb :player, :locals => {:player => test.eloHash[player]}
 	else 
+		puts "barf"
 		redirect to('/404')
 	end
 end

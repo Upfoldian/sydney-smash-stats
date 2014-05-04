@@ -14,7 +14,7 @@
 			<Games>
 				<Game>
 					<ID>ef88fd8e-e96d-4750-a1f9-77828258ce52</ID>
-					<Name>Melee</Name>
+					<Name>Melee Singles</Name>
 					<PreviousEventID>00000000-0000-0000-0000-000000000000</PreviousEventID>
 					<Date>01/25/2014 00:00:00</Date>
 					<BracketType>DoubleElim</BracketType>
@@ -775,7 +775,7 @@
 				</Game>
 				<Game>
 					<ID>cf269268-929a-4027-b632-b9aaa16283f9</ID>
-					<Name>Project M</Name>
+					<Name>Project M Singles</Name>
 					<PreviousEventID>00000000-0000-0000-0000-000000000000</PreviousEventID>
 					<Date>01/25/2014 00:00:00</Date>
 					<BracketType>DoubleElim</BracketType>
@@ -1492,7 +1492,7 @@
 				</Game>
 				<Game>
 					<ID>662d13f2-1ced-47d0-93cd-facb1b5d34d0</ID>
-					<Name>Brawl</Name>
+					<Name>Brawl Singles</Name>
 					<PreviousEventID>00000000-0000-0000-0000-000000000000</PreviousEventID>
 					<Date>01/25/2014 00:00:00</Date>
 					<BracketType>DoubleElim</BracketType>
