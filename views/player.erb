@@ -1,2 +1,13 @@
 <script src="//www.google.com/jsapi"></script>
-<script src="chartkick.js"></script>
+<script src="/chartkick.js"></script>
+
+
+<div id="player">
+	<span class="name"> <a href= '/player=<%= player.name%>'><%= player.name %>:</a> </span> </br>
+	<span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span> </br>
+	<span class="lostAgainst"> <%= player.losses.map{|x| x.name}.sort %> </span> </br>
+	<span class="elo"> <%= player.elo %> </span> </br>
+	<span class="sets"> <%= player.sets %>  </span> </br>
+
+	<%= line_chart player.eloChanges %>
+</div>

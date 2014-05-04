@@ -3,8 +3,8 @@ module TioParse
 	ELO_CONST = 50
 	class Player
 
-		attr_reader :wins, :losses, :name
-		attr_accessor :sets, :elo
+		attr_reader :wins, :losses, :name, :elo, :eloChanges
+		attr_accessor :sets
 
 		def initialize player
 			@wins = []
@@ -12,6 +12,7 @@ module TioParse
 			@sets = 0
 			@name = player
 			@elo = 1200
+			@eloChanges = [1200]
 		end
 
 		def beat *players
@@ -20,6 +21,11 @@ module TioParse
 
 		def lost_to *players
 			players.each {|player| @losses.push player unless @losses.include? player}
+		end
+
+		def new_elo newElo
+			@elo += newElo
+			@eloChanges.push @elo
 		end
 
 		def to_s
@@ -86,6 +92,7 @@ module TioParse
 					loser = (player1 == winner ? player2 : player1)
 					winner.beat loser
 					loser.lost_to winner
+
 				end
 			end
 		end
@@ -132,8 +139,8 @@ module TioParse
 					#	puts "Winner: #{winner.name}(#{winner.elo}), Loser: #{loser.name}(#{loser.elo})"
 					#	puts "RatingChange: #{ratingChange}"
 					#end
-					winner.elo += ratingChange
-					loser.elo -= ratingChange
+					winner.new_elo ratingChange
+					loser.new_elo -ratingChange
 				end
 			end
 		end

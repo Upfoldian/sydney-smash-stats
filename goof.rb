@@ -66,7 +66,13 @@ end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
 get '/player=*' do
-	#do stuff
+	player = params[:splat].first
+	if test.eloHash.has_key? player
+		puts "qwre"
+		erb :player, :locals => {:player => test.eloHash[player]}
+	else 
+		redirect to('/404')
+	end
 end
 get '/404' do
 	erb :not_found

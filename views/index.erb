@@ -1,4 +1,3 @@
-
 <div class = "bracketDetails"> <%= bracketTitle %> from: </span>
 	<ul>
 		<% brackets.each do |bracket| %>
@@ -8,7 +7,7 @@
 </div>
 <% players.each do |player| %>
 	<div id="player">
-		<span class="name"> <%= player.name %>: </span> </br>
+		<span class="name"> <a href= '/player=<%= player.name%>'><%= player.name %>:</a> </span> </br>
 		<span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span> </br>
 		<span class="lostAgainst"> <%= player.losses.map{|x| x.name}.sort %> </span> </br>
 		<span class="elo"> <%= player.elo %> </span> </br>
