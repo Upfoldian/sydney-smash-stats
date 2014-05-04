@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'chartkick'
 require './lib/tioParse.rb'
 
 class BracketGroup
@@ -49,15 +50,18 @@ class BracketGroup
 end
 #checks bracket dir for tio files
 def available_brackets()
-	Dir["./brackets/*.tio"]
+	Dir["./brackets/ACT/Canberra Colosseum/*.tio"]
 end
+searchTitle = 'Brawl Singles'
+test = BracketGroup.new(available_brackets, searchTitle)
 
-test = BracketGroup.new(available_brackets, 'Melee Singles')
-
-set :bind, '0.0.0.0'
-
+#set :bind, '0.0.0.0'
+puts available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}.to_s
+puts ""
 get '/' do
-	erb :index, :locals => {:players => test.eloHash.values.select{|x| x.sets > 5}.sort_by{|x| x.elo}.reverse}
+	erb :index, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse, 
+							:brackets => available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]},
+							:bracketTitle => searchTitle}
 end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
