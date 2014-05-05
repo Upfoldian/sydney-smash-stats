@@ -24,7 +24,7 @@ def available_singles_events()
 end
 test = TioParse::BracketGroup.new(available_brackets, "Melee Singles")
 #puts test.eloHash['ted'].wins_to_s
-set :bind, '0.0.0.0'
+#set :bind, '0.0.0.0'
 get '/' do
 	erb :index, :locals => {:events => available_singles_events}
 end

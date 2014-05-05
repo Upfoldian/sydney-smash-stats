@@ -26,7 +26,7 @@ class Player
 		players.each do |player|
 			@losses.push player if not @losses.include? player
 			@eventResults[eventName] = {:wins => [], :losses => []} if not @eventResults.has_key? eventName
-			@eventResults[eventName][:wins].push player
+			@eventResults[eventName][:losses].push player
 		end
 	end
 

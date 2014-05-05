@@ -2,11 +2,16 @@
 <script src="/chartkick.js"></script>
 
 <div id="player">
-	<span class="name"><%= player.name %>: </span> </br>
-	<span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span> </br>
-	<span class="lostAgainst"> <%= player.losses.map{|x| x.name}.sort %> </span> </br>
-	<span class="elo"> <%= player.elo %> </span> </br>
-	<span class="sets"> <%= player.sets %>  </span> </br> 
+	<div class="name"> <%= player.name %>: </div>
+	<div class="elo"> <span class ="eloTitle"> Elo: </span> <%= player.elo %> </div>
+	<div class="sets"> <span class ="setTitle">Sets played: </span>  <%= player.sets %> </div>
+
+	<% player.eventResults.each_key do |key| %>
+		<div class="event"> <span class="eventTitle"> <%= key %>: </span>
+			<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name}.sort %> </div>
+			<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name}.sort %> </div>
+		</div>
+	<% end %>
 	<% data = player.eloChanges.each_with_index.map{|x, i| [i, x]} %>
 	<%= line_chart data, {
 		min: 1000,
