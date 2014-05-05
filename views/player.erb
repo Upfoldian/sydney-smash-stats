@@ -1,13 +1,21 @@
 <script src="//www.google.com/jsapi"></script>
 <script src="/chartkick.js"></script>
 
-
 <div id="player">
-	<span class="name"> <a href= '/player=<%= player.name%>'><%= player.name %>:</a> </span> </br>
+	<span class="name"><%= player.name %>: </span> </br>
 	<span class="wonAgainst"> <%= player.wins.map{|x| x.name}.sort %> </span> </br>
 	<span class="lostAgainst"> <%= player.losses.map{|x| x.name}.sort %> </span> </br>
 	<span class="elo"> <%= player.elo %> </span> </br>
-	<span class="sets"> <%= player.sets %>  </span> </br>
-
-	<%= line_chart player.eloChanges %>
+	<span class="sets"> <%= player.sets %>  </span> </br> 
+	<% data = player.eloChanges.each_with_index.map{|x, i| [i, x]} %>
+	<%= line_chart data, {
+		min: 1000,
+	 	max: (player.elo+100),
+	 	discrete: true, 
+ 		library: {
+ 			#chartArea: {width: 400, length: 600},
+		 	hAxis: {title: "Games Played", showTextEvery: 5}, 
+			vAxis: {title: "Elo"}
+	 	}
+ 	} %>
 </div>

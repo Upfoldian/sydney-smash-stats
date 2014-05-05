@@ -4,23 +4,28 @@ require './lib/TioParse.rb'
 
 #checks bracket dir for tio files
 def available_brackets()
-	Dir["./brackets/ACT/Canberra Colosseum/*.tio"]
+	Dir["./brackets/Cur/*.tio"]
 end
-def available_events()
+def available_singles_events()
 	events = []
-	available_brackets.each do |x| 
-		TioParse.get_events(x).each {|x| events.push x.downcase if !events.include? x.downcase}
+	available_brackets.each do |bracket| 
+		TioParse.get_events(bracket).each do |event|
+			x = event.downcase 
+			#if it isn't already added AND it isn't a doubles event
+			next if not x.include?("singles")
+			events.push x if not events.include? x
+		end
 	end
 	events
 end
 
 set :bind, '0.0.0.0'
 get '/' do
-	erb :index, :locals => {:events => available_events}
+	erb :index, :locals => {:events => available_singles_events}
 end
 get '/*/' do
 	searchTitle = params[:splat].first
-	redirect to('/') if not available_events.include? searchTitle.downcase
+	redirect to('/') if not available_singles_events.include? searchTitle.downcase
 	test = TioParse::BracketGroup.new(available_brackets, searchTitle)
 	
 	players = test.eloHash.values.sort_by{|x| x.elo}.reverse
