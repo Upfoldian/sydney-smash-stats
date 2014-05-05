@@ -34,7 +34,8 @@ module TioParse
 		eventData = Hash.new
 		id_hash = get_id_hash(filepath)
 		tioFile = Nokogiri::XML(open(filepath))
-
+		eventName = get_name filepath
+		
 		tioFile.xpath("//Game").each do |node|
 			if node.xpath("Name").text.downcase == target_event.downcase
 				node.xpath("Entrants/Entrant/PlayerID").each do |entrant|
@@ -48,12 +49,15 @@ module TioParse
 					player1 = eventData[id_hash[match.xpath("Player1").text]]
 					player2 = eventData[id_hash[match.xpath("Player2").text]]
 
+					winner = eventData[id_hash[match.xpath("Winner").text]]
+					loser = (player1 == winner ? player2 : player1)
+
 					next if (player1 == nil || player2 == nil) #either player is a bye
+					next if winner == nil #bracket didn't finish
+
 					player1.sets+=1
 					player2.sets+=1
-					winner = eventData[id_hash[match.xpath("Winner").text]]
-					next if winner == nil #bracket didn't finish
-					loser = (player1 == winner ? player2 : player1)
+
 					winner.beat loser
 					loser.lost_to winner
 
@@ -76,6 +80,7 @@ module TioParse
 		#returns the win/loss data of the event in a hash 
 		id_hash = get_id_hash(filepath)
 		tioFile = Nokogiri::XML(open(filepath))
+		eventName = get_name filepath
 
 		tioFile.xpath("//Game").each do |node|
 			if node.xpath("Name").text.downcase == target_event.downcase
@@ -90,19 +95,20 @@ module TioParse
 					player1 = elo_ratings[id_hash[match.xpath("Player1").text]]
 					player2 = elo_ratings[id_hash[match.xpath("Player2").text]]
 
+					winner = elo_ratings[id_hash[match.xpath("Winner").text]]
+					loser = (player1 == winner ? player2 : player1)
+
 					next if (player1 == nil || player2 == nil) #either player is a bye
+					next if winner == nil #bracket didn't finish
+
 					player1.sets+=1
 					player2.sets+=1
-					winner = elo_ratings[id_hash[match.xpath("Winner").text]]
-					next if winner == nil #bracket didn't finish
-					loser = (player1 == winner ? player2 : player1)
-					winner.beat loser
-					loser.lost_to winner
+
+					winner.beat eventName, loser
+					loser.lost_to eventName, winner
+
 					ratingChange = calculate_elo_change(winner, loser)
-					#if (winner.name == "ted" || loser.name == "ted")
-					#	puts "Winner: #{winner.name}(#{winner.elo}), Loser: #{loser.name}(#{loser.elo})"
-					#	puts "RatingChange: #{ratingChange}"
-					#end
+
 					winner.new_elo ratingChange
 					loser.new_elo -ratingChange
 				end

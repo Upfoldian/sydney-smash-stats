@@ -12,6 +12,18 @@
 .elo {
 	margin-left: 50px;
 }
+.eloTitle {
+	font-weight:bold;
+}
 .sets {
 	margin-left: 50px;
+}
+.setTitle{
+	font-weight:bold;
+}
+.event {
+	margin-left: 50px;
+}
+.eventTitle {
+	font-weight:bold;
 }

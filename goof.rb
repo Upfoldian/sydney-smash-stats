@@ -6,19 +6,24 @@ require './lib/TioParse.rb'
 def available_brackets()
 	Dir["./brackets/Cur/*.tio"]
 end
+
+def order_brackets(*brackets)
+	brackets.sort_by {|file| Nokogiri::XML(open(file)).xpath("AppData/EventList/Event/StartDate").text}
+end
+
 def available_singles_events()
 	events = []
-	available_brackets.each do |bracket| 
+	order_brackets(*available_brackets).each do |bracket|
 		TioParse.get_events(bracket).each do |event|
 			x = event.downcase 
-			#if it isn't already added AND it isn't a doubles event
 			next if not x.include?("singles")
 			events.push x if not events.include? x
 		end
 	end
 	events
 end
-
+test = TioParse::BracketGroup.new(available_brackets, "Melee Singles")
+#puts test.eloHash['ted'].wins_to_s
 set :bind, '0.0.0.0'
 get '/' do
 	erb :index, :locals => {:events => available_singles_events}
