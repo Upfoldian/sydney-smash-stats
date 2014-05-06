@@ -17,6 +17,7 @@ module TioParse
 	def self.get_name(filepath)
 		#filepath:  	file location of tiopro bracket file
 		#returns the name of the tournament e.g. "RoS 1"
+		puts filepath.to_s
 		Nokogiri::XML(open(filepath)).xpath("AppData/EventList/Event/Name").text
 	end
 

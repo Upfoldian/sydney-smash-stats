@@ -3,43 +3,50 @@ require 'chartkick'
 require './lib/TioParse.rb'
 
 #checks bracket dir for tio files
-def available_brackets()
+def tio_files()
 	Dir["./brackets/Cur/*.tio"]
 end
 
 def order_brackets(*brackets)
-	brackets.sort_by {|file| Nokogiri::XML(open(file)).xpath("AppData/EventList/Event/StartDate").text}
+	temp = []
+	brackets.each do |file|
+		a = Nokogiri::XML(open(file)).xpath("AppData/EventList/Event/StartDate").text.split.first
+		puts a
+		puts Date.strptime(a, "%d/%m/%Y").to_s
+	end
 end
 
-def available_singles_events()
-	events = []
-	order_brackets(*available_brackets).each do |bracket|
+def get_singles(*brackets)
+	singles = []
+	brackets.each do |bracket|
 		TioParse.get_events(bracket).each do |event|
-			x = event.downcase 
-			next if not x.include?("singles")
-			events.push x if not events.include? x
+			next if not event.downcase.include? "singles"
+			singles << event.downcase if not singles.include? event.downcase
 		end
 	end
-	events
+	singles
 end
 
+orderedBrackets = order_brackets *tio_files
 
-set :bind, '0.0.0.0'
+#set :bind, '0.0.0.0'
 
 get '/' do
-	erb :index, :locals => {:events => available_singles_events}
+	erb :index, :locals => {:events => get_singles(*orderedBrackets)}
 end
 
 get '/*/' do
 	searchTitle = params[:splat].first
-	redirect to('/') if not available_singles_events.include? searchTitle.downcase
-	test = TioParse::BracketGroup.new(available_brackets, searchTitle)
+	if !get_singles(*orderedBrackets).include? searchTitle.downcase
+		redirect to('/') 
+	end
+	test = TioParse::BracketGroup.new(orderedBrackets, searchTitle)
 	
 	players = test.eloHash.values.sort_by{|x| x.elo}.reverse
-	brackets = available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
+	brackets = orderedBrackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
 
-	erb :events, :locals => {:players => test.eloHash.values.sort_by{|x| x.elo}.reverse, 
-							:brackets => available_brackets.map{|x| x.split('/').last}.map{|x| x[0..-5]},
+	erb :events, :locals => {:players => players, 
+							:brackets => brackets,
 							:bracketTitle => searchTitle}
 end
 
@@ -47,7 +54,8 @@ end
 get '/*/player=*' do
 	event = params[:splat].first
 	player = params[:splat].last
-	test = TioParse::BracketGroup.new(available_brackets, event)
+
+	test = TioParse::BracketGroup.new(orderedBrackets, event)
 	if test.eloHash.has_key? player
 		erb :player, :locals => {:player => test.eloHash[player]}
 	else 
