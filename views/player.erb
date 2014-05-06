@@ -1,5 +1,5 @@
 <script src="//www.google.com/jsapi"></script>
-<script src="/chartkick.js"></script>
+<script src="/js/chartkick.js"></script>
 
 <div id="player">
 	<div class="name"> <%= player.name %>: </div>
@@ -8,8 +8,8 @@
 
 	<% player.eventResults.each_key do |key| %>
 		<div class="event"> <span class="eventTitle"> <%= key %>: </span>
-			<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name}.sort %> </div>
-			<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name}.sort %> </div>
+			<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name} %> </div>
+			<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name} %> </div>
 		</div>
 	<% end %>
 	<% data = player.eloChanges.each_with_index.map{|x, i| [i, x]} %>

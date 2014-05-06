@@ -22,12 +22,14 @@ def available_singles_events()
 	end
 	events
 end
-test = TioParse::BracketGroup.new(available_brackets, "Melee Singles")
-#puts test.eloHash['ted'].wins_to_s
-#set :bind, '0.0.0.0'
+
+
+set :bind, '0.0.0.0'
+
 get '/' do
 	erb :index, :locals => {:events => available_singles_events}
 end
+
 get '/*/' do
 	searchTitle = params[:splat].first
 	redirect to('/') if not available_singles_events.include? searchTitle.downcase
@@ -52,9 +54,19 @@ get '/*/player=*' do
 		redirect to('/404')
 	end
 end
+
+get '/about' do
+	erb :about
+end
+
+get '/contact' do
+	erb :contact
+end
+
 get '/404' do
 	erb :not_found
 end
+
 not_found do
 	redirect to('/404')
 end

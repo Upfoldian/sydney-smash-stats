@@ -13,8 +13,8 @@
 
 		<% player.eventResults.each_key do |key| %>
 			<div class="event"> <span class="eventTitle"> <%= key %>: </span>
-				<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name}.sort %> </div>
-				<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name}.sort %> </div>
+				<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name} %> </div>
+				<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name} %> </div>
 			</div>
 		<% end %>
 
