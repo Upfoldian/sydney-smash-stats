@@ -17,8 +17,33 @@ module TioParse
 	def self.get_name(filepath)
 		#filepath:  	file location of tiopro bracket file
 		#returns the name of the tournament e.g. "RoS 1"
-		puts filepath.to_s
+		#puts filepath.to_s
 		Nokogiri::XML(open(filepath)).xpath("AppData/EventList/Event/Name").text
+	end
+
+	#checks bracket dir for tio files
+	def self.tio_files()
+		Dir["./brackets/asdf/*.tio"]
+	end
+
+	def self.order_brackets(*brackets)
+		temp = []
+		brackets.sort_by do |file|
+			a = Nokogiri::XML(open(file)).xpath("AppData/EventList/Event/StartDate").text.split.first
+			#puts get_name file
+			Date.strptime(a, "%m/%d/%Y")
+		end
+	end
+
+	def self.get_singles(*brackets)
+		singles = []
+		brackets.each do |bracket|
+			TioParse.get_events(bracket).each do |event|
+				next if not event.downcase.include? "singles"
+				singles << event.downcase if not singles.include? event.downcase
+			end
+		end
+		singles
 	end
 
 	def self.get_events(filepath)
