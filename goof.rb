@@ -21,8 +21,8 @@ get '/*/' do
 	brackets = orderedBrackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
 
 	erb :events, :locals => {:players => players, 
-							:brackets => brackets,
-							:bracketTitle => searchTitle}
+							 :brackets => brackets,
+							 :bracketTitle => searchTitle}
 end
 
 #this needs to be tied with some unique bracket grouping ID or some shit
