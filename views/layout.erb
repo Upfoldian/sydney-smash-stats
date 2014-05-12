@@ -3,6 +3,10 @@
   <head>
     <title>i have no idea what i'm doing</title>
     <!-- css -->
+    <link rel="stylesheet" type="text/css" href="/css/event.css">
+    <link rel="stylesheet" type="text/css" href="/css/about.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact.css">
+    <link rel="stylesheet" type="text/css" href="/css/player.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
@@ -10,32 +14,32 @@
   </head>
   <body>
 
-  	<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/">TIO parse something something</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+          <a class="navbar-brand" href="#">Project name</a>
         </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
-    
-    <div class = "container">
-      <%= yield %>
     </div>
+    
+    <div class = "container"> <%= yield %> </div>
 
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script type = "text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type = "text/javascript" src="/js/bootstrap.min.js"></script>
 
   </body>
 </html>
