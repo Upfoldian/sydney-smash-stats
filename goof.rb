@@ -4,7 +4,8 @@ require './lib/TioParse.rb'
 
 orderedBrackets = TioParse.order_brackets *TioParse.tio_files
 
-#set :bind, '0.0.0.0'
+set :bind, '0.0.0.0'
+#set :port, 80
 
 get '/' do
 	erb :index, :locals => {:events => TioParse.get_singles(*orderedBrackets)}

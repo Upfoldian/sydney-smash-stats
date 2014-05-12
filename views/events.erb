@@ -1,22 +1,35 @@
+<link rel="stylesheet" type="text/css" href="/css/event.css">
+
 <div class = "bracketDetails"> <%= bracketTitle %> from: </span>
 	<ul>
 		<% brackets.each do |bracket| %>
-			<li> <span class = "tournamentName"> <%= bracket%> </span>
+		<li> <span class = "tournamentName"> <%= bracket%> </span> </li>
 		<% end %>
 	</ul>
 </div>
-<% players.each do |player| %>
-	<div id="player">
-		<div class="name"> <a href= '/<%= bracketTitle%>/player=<%= player.name%>'><%= player.name %>:</a> </div>
-		<div class="elo"> <span class ="eloTitle"> Elo: </span> <%= player.elo %> </div>
-		<div class="sets"> <span class ="setTitle">Sets played: </span>  <%= player.sets %> </div>
+<div class = "row">
+	<% players.each do |player| %>
+		<div class = "col-md-6">
+			<div class = "player">
+				<div class="name"> 
+					<a href= <%= "/#{bracketTitle}/player=#{player.name}" %>><%= player.name %>:</a> 
+				</div>
 
-		<% player.eventResults.each_key do |key| %>
-			<div class="event"> <span class="eventTitle"> <%= key %>: </span>
-				<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name} %> </div>
-				<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name} %> </div>
+				<div class="elo"> <span class ="eloTitle"> Elo: </span> <%= player.elo %> </div>
+
+				<div class="sets"> 
+					<span class ="setTitle">Sets played: </span>  <%= player.sets %> 
+				</div>
+
+				<% player.eventResults.each_key do |key| %>
+					<div class="event"> 
+						<span class="eventTitle"> <%= key %>: </span>
+						<div class="wonAgainst"> <%= player.eventResults[key][:wins].map{|x| x.name} %> </div>
+						<div class="lostAgainst"> <%= player.eventResults[key][:losses].map{|x| x.name} %> </div>
+					</div>
+				<% end %>
+
 			</div>
-		<% end %>
-
-	</div>
-<% end %>
+		</div>
+	<% end %>
+</div>
