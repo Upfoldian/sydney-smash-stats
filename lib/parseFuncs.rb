@@ -1,4 +1,3 @@
-require 'nokogiri'
 module TioParse
 	def self.get_id_hash(filepath)
 		#filepath:  	file location of tiopro bracket file

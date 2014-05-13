@@ -3,4 +3,7 @@ module TioParse
 	require "./lib/parseFuncs.rb"
 	require "./lib/bracketGroup.rb"
 	require "./lib/player.rb"
+	require 'nokogiri'
+	require 'sinatra'
+	require 'chartkick'
 end
