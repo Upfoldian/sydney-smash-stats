@@ -65,7 +65,7 @@ class SydneySmashStats < Sinatra::Base
 	end
 
 	get '/404' do
-		erb :not_found
+		erb :not_found, :layout => false
 	end
 
 	not_found do

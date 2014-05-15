@@ -8,12 +8,12 @@
 	<% players.each do |player| %>
 		<% next if player == nil %>
 		<div class = "player">
-			<div class = "col-md-2">
+			<div class = "col-xs-3 col-md-2">
 				<span class = "name">
 					<a href= "/<%=bracketTitle%>/player=<%=player.name%>"><%= player.name %>:</a>
 				</span>
 			</div>
-			<div class = "col-md-2">
+			<div class = "col-xs-3 col-md-2">
 				<span class="eloEvent"> <%= player.elo %> </span>
 			</div>
 		</div>
