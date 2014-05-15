@@ -19,12 +19,12 @@ class SydneySmashStats < Sinatra::Base
 		test = TioParse::BracketGroup.new(orderedBrackets, searchTitle)
 		
 		players = test.eloHash.values.sort_by{|x| x.elo}.reverse
-		slices = players.slices_of(3).to_a
+		slices = players.each_slice(3).to_a
 		while slices.last.length < slices.first.length
 			slices.last << nil
 		end
 		players = slices.transpose.flatten
-		
+
 		brackets = orderedBrackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
 
 		erb :events, :locals => {:players => players, 
