@@ -9,7 +9,7 @@
 <div class = "row" >
 	<% data = [["Player", "Elo"]] %>
 	<% players.each do |player| %>
-
+		<% next if player == nil %>
 		<div class = "player">
 			<div class = "col-md-2">
 				<span class = "name">
