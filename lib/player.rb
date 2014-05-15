@@ -44,11 +44,7 @@ class Player
 	end
 
 	def to_s
-		"Name: '#{@name}'\n"+
-		"    Won against: #{@wins.map{|x| x.name}.sort}\n"+
-		"    Lost against: #{@losses.map{|x| x.name}.sort}\n"+
-		"    Sets played: #{@sets}\n"+
-		"    Elo: #{@elo}\n"
+		"Name: '#{@name}'"
 	end
 
 end

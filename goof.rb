@@ -3,8 +3,8 @@ require './lib/tioParse.rb'
 
 #set :bind, '0.0.0.0'
 #set :port, 80
+
 class SydneySmashStats < Sinatra::Base
-	
 	orderedBrackets = TioParse.order_brackets *TioParse.tio_files
 	
 	get '/' do
@@ -19,11 +19,14 @@ class SydneySmashStats < Sinatra::Base
 		test = TioParse::BracketGroup.new(orderedBrackets, searchTitle)
 		
 		players = test.eloHash.values.sort_by{|x| x.elo}.reverse
-		slices = players.each_slice(3).to_a
+		slices = players.each_slice(players.size/3).to_a
 		while slices.last.length < slices.first.length
 			slices.last << nil
 		end
+		puts slices.to_s
 		players = slices.transpose.flatten
+		puts "*******"
+		puts players.to_s
 
 		brackets = orderedBrackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
 
@@ -60,5 +63,4 @@ class SydneySmashStats < Sinatra::Base
 	not_found do
 		redirect to('/404')
 	end
-
 end
