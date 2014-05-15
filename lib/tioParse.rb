@@ -5,6 +5,5 @@ module TioParse
 	require "./lib/player.rb"
 	require 'rubygems'
 	require 'nokogiri'
-	require 'sinatra'
 	require 'chartkick'
 end
