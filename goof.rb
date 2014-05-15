@@ -1,4 +1,3 @@
-require "rubygems"
 require './lib/TioParse.rb'
 
 orderedBrackets = TioParse.order_brackets *TioParse.tio_files
