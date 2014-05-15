@@ -44,7 +44,7 @@ class Player
 	end
 
 	def to_s
-		"Name: '#{@name}'"
+		"#{@name}"
 	end
 
 end

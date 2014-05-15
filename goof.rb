@@ -1,4 +1,5 @@
 require 'sinatra/base'
+#require 'sinatra'
 require './lib/tioParse.rb'
 
 #set :bind, '0.0.0.0'
@@ -17,21 +18,28 @@ class SydneySmashStats < Sinatra::Base
 			redirect to('/') 
 		end
 		test = TioParse::BracketGroup.new(orderedBrackets, searchTitle)
-		
+
 		players = test.eloHash.values.sort_by{|x| x.elo}.reverse
-		slices = players.each_slice(players.size/3).to_a
+
+		playerData = [["Player", "Elo"]]
+		players.each do |x|
+		 	next if x == nil
+		 	playerData << [x.name, x.elo]
+		end 
+
+		puts (players.size/3.0).ceil
+
+		slices = players.each_slice((players.size/3.0).ceil).to_a
 		while slices.last.length < slices.first.length
 			slices.last << nil
 		end
-		puts slices.to_s
 		players = slices.transpose.flatten
-		puts "*******"
-		puts players.to_s
 
 		brackets = orderedBrackets.map{|x| x.split('/').last}.map{|x| x[0..-5]}
 
 		erb :events, :locals => {:players => players, 
 								 :brackets => brackets,
+								 :playerData => playerData,
 								 :bracketTitle => searchTitle}
 	end
 

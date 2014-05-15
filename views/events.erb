@@ -1,10 +1,4 @@
 <script src="//www.google.com/jsapi"></script>
-
-<% playerData = [["Player", "Elo"]] %>
-<% players.each do |x| %>
-	<% next if x == nil %>
-	<% playerData << [x.name, x.elo] %>
-<% end %>
 <script type="text/javascript"> var jsData = <%= playerData %> </script>
 <script type="text/javascript" src = "/js/histogram.js"> </script>
 <div id="chart_div"></div>
