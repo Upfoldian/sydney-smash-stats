@@ -27,8 +27,6 @@ class SydneySmashStats < Sinatra::Base
 		 	playerData << [x.name, x.elo]
 		end 
 
-		puts (players.size/3.0).ceil
-
 		slices = players.each_slice((players.size/3.0).ceil).to_a
 		while slices.last.length < slices.first.length
 			slices.last << nil
@@ -65,7 +63,7 @@ class SydneySmashStats < Sinatra::Base
 	end
 
 	get '/404' do
-		erb :not_found, :layout => false
+		erb :not_found
 	end
 
 	not_found do
