@@ -24,7 +24,7 @@ module TioParse
 	def self.tio_files()
 		Dir["./brackets/asdf/*.tio"]
 	end
-
+	#takes filepath/s of brackets
 	def self.order_brackets(*brackets)
 		temp = []
 		brackets.sort_by do |file|
@@ -33,7 +33,7 @@ module TioParse
 			Date.strptime(a, "%m/%d/%Y")
 		end
 	end
-
+	#takes filepath/s of brackets
 	def self.get_singles(*brackets)
 		singles = []
 		brackets.each do |bracket|
